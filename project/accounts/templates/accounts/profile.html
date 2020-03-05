@@ -1,0 +1,25 @@
+{%extends 'accounts/base.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+<div class="jumbotron">
+  <div class="card">
+    <div class="card-header text-white"style=background-color:dodgerblue;>
+<legend>My Profile</legend>
+      </div>
+<div class="card-body">
+<img class="rounded-circle" width='150' height='150' src="{{obj.image.url}}" alt="edit">
+{{user.username}}
+<br>
+{{user.email}}
+<br>
+{{obj.bio}}
+<form method="POST" action="" enctype="multipart/form-data">
+  {%csrf_token%}
+  {{form|crispy}}
+  {{u_form|crispy}}
+  <button class="btn btn-outline-success">Update</button>
+  </form>
+  </div>
+  </div>
+  </div>
+{%endblock%}
